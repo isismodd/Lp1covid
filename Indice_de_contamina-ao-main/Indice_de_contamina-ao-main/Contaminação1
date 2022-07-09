@@ -1,0 +1,80 @@
+/*Gabriella Stefaneli Evangelista - SP307207X
+* Gioana Dias Valentini - SP3075451
+* Isis Macedo e Andrade - SP3092178
+* Lucas Simões Silva - SP3071235
+* Mariana Cristina Sena Silva - SP3065677*/
+
+package covid_EXE; 
+
+import java.math.*;
+import java.awt.*;
+import java.awt.geom.*;
+import java.util.Scanner;
+import javax.swing.*;
+
+public class Covid_EXE {
+    private int constante_proporcionalidade;
+    private int icontaminacao;
+	private int tempo;
+	private double infectados;
+	public Covid_EXE(int tempo) {
+	}
+
+	public void calculo_infectadosint (int icontaminacao, int constante_proporcionalidade) {
+	    Covid_EXE.icontaminacao = icontaminacao;
+		Covid_EXE.constante_proporcionalidade = constante_proporcionalidade;
+		infectados = Covid_EXE.icontaminacao*Math.exp(Covid_EXE.constante_proporcionalidade*tempo);	
+		System.out.printf("Número de infectados: %f \n", infectados);	
+		String tempo;
+		Scanner input = new Scanner(System.in);
+		System.out.println("Insira o tempo: \n");
+		while (input.hasNext()){
+			int t = input.nextInt();
+			if (t >0 && t <= 24)
+				tempo = "horas";
+			else if (t >24)
+				tempo = "dias";
+			else 
+				tempo = "meses";
+			JFrame frame = new JFrame();
+			switch (tempo) {
+				case "horas":
+					System.out.printf("Número de infectados: %f \n", this.contaminacao_horas(t));
+					plotInfectados(frame.getGraphics());
+					break;
+				case "dias":
+					System.out.printf("Número de infectados: %f \n",this.contaminacao_dias(t))	;
+					plotInfectados(frame.getGraphics());
+					break;
+				case "meses":
+					System.out.printf("Número de infectados: %f \n", this.contaminacao_meses(t));
+					plotInfectados(frame.getGraphics());
+					break;
+				default:
+					System.out.println("Fora do intervalo de tempo!\\n");
+					break;
+			}
+		}		
+	}
+	public double contaminacao_horas(int tempo) {
+		return this.infectados = Covid_EXE.icontaminacao*Math.exp(Covid_EXE.constante_proporcionalidade*tempo);
+	}
+	public double contaminacao_dias(int tempo) {
+		return this.infectados = Covid_EXE.icontaminacao*Math.exp(Covid_EXE.constante_proporcionalidade*tempo/24);
+	}
+	public double contaminacao_meses(int tempo) {
+		return this.infectados = Covid_EXE.icontaminacao*Math.exp(Covid_EXE.constante_proporcionalidade*tempo/360);
+	}
+	public void plotInfectados(Graphics g) {		
+		//g.drawChars(null, constante_proporcionalidade, tempo, contaminacao_inicial, constante_proporcionalidade);
+		//plot.drawChars(null, constante_proporcionalidade, tempo, {0}, infectados);		
+	}
+
+	public int getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(int tempo) {
+		this.tempo = tempo;
+	}
+}

@@ -1,0 +1,21 @@
+/*Gabriella Stefaneli Evangelista - SP307207X
+* Gioana Dias Valentini - SP3075451
+* Isis Macedo e Andrade - SP3092178
+* Lucas Simões Silva - SP3071235
+* Mariana Cristina Sena Silva - SP3065677*/
+
+package covid_EXE;
+
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
+public class mainContaminacao {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		controles controle = new controles;
+		JFrame frame = new Tela;
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setSize(new Dimension(400, 400));
+	    frame.setVisible(true);
+	}
+}
